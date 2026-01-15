@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Reveal from "@/components/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { waLink } from "@/lib/links";
@@ -116,7 +115,7 @@ function ProductCollage() {
                 }
               }
             >
-              <div className="relative overflow-hidden rounded-3xl border border-white/25 bg-white shadow-[0_12px_30px_rgba(2,6,23,0.16)]">
+              <div className="relative overflow-hidden rounded-3xl border border-white/25 bg-white shadow-[0_12px_30px_rgba(2,6,23,0.16)] motion-reduce:animate-none animate-heroFloat">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src={it.src}
@@ -145,8 +144,9 @@ export default function Hero() {
     <section className="relative overflow-hidden hero-bg">
       <div className="container pb-10 pt-10 md:pb-14 md:pt-14">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <Reveal>
-            <div className="text-white">
+          {/* IMPORTANT: No usamos <Reveal/> en HERO para evitar pantallas en blanco en mobile.
+              El HERO debe ser visible inmediatamente al cargar (como el mockup del cliente). */}
+          <div className="text-white">
               <HeroStrip />
 
               <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -210,14 +210,11 @@ export default function Hero() {
                   <span className="text-white/80">→</span>
                 </Link>
               </div>
-            </div>
-          </Reveal>
+          </div>
 
-          <Reveal>
-            <div className="lg:pt-6">
-              <ProductCollage />
-            </div>
-          </Reveal>
+          <div className="lg:pt-6">
+            <ProductCollage />
+          </div>
         </div>
 
         {/* Trust / benefits row (estilo HelloFresh) */}
