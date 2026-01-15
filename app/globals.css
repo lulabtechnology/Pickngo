@@ -25,10 +25,20 @@ body { color: rgb(15 23 42); background: #fff; }
 /* HERO — base verde + acentos suaves (vibra HelloFresh sin copiar) */
 .hero-bg {
   background:
-    radial-gradient(900px 540px at 15% 20%, rgba(255,244,204,0.22), transparent 60%),
-    radial-gradient(900px 540px at 82% 20%, rgba(210,236,255,0.20), transparent 62%),
-    radial-gradient(900px 560px at 70% 95%, rgba(210,244,225,0.18), transparent 60%),
+    radial-gradient(900px 540px at 15% 18%, rgba(255,244,204,0.34), transparent 60%),
+    radial-gradient(900px 540px at 84% 22%, rgba(210,236,255,0.30), transparent 62%),
+    radial-gradient(900px 560px at 68% 92%, rgba(210,244,225,0.26), transparent 60%),
     linear-gradient(180deg, rgba(11,107,63,1), rgba(8,78,48,1));
+}
+
+/* Pequeño “sheen” para que en mobile no se vea plano */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(900px 500px at 40% 0%, rgba(255,255,255,0.10), transparent 60%);
+  opacity: 0.9;
 }
 
 /* HERO — elementos de productos: animación por secuencia (direcciones variadas) */
