@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --radius: 1.75rem;
-}
+:root { --radius: 1.75rem; }
 
 html { scroll-behavior: smooth; }
 body { color: rgb(15 23 42); background: #fff; }
@@ -15,14 +13,13 @@ body { color: rgb(15 23 42); background: #fff; }
   html { scroll-behavior: auto; }
 }
 
-/* Utility: subtle grid texture (premium feel) */
 .bg-soft-grid {
   background-image:
     radial-gradient(circle at 1px 1px, rgba(2,6,23,0.06) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* HERO — base verde + acentos suaves (vibra HelloFresh sin copiar) */
+/* HERO — verde + blobs pastel (Opción B) */
 .hero-bg {
   background:
     radial-gradient(900px 540px at 15% 18%, rgba(255,244,204,0.34), transparent 60%),
@@ -31,7 +28,7 @@ body { color: rgb(15 23 42); background: #fff; }
     linear-gradient(180deg, rgba(11,107,63,1), rgba(8,78,48,1));
 }
 
-/* Pequeño “sheen” para que en mobile no se vea plano */
+/* Sheen sutil para que no se vea “plano” en mobile */
 .hero-bg::before {
   content: "";
   position: absolute;
@@ -39,21 +36,4 @@ body { color: rgb(15 23 42); background: #fff; }
   pointer-events: none;
   background: radial-gradient(900px 500px at 40% 0%, rgba(255,255,255,0.10), transparent 60%);
   opacity: 0.9;
-}
-
-/* HERO — elementos de productos: animación por secuencia (direcciones variadas) */
-.hero-item {
-  will-change: transform, opacity;
-}
-
-
-/* Reveal baseline (used by <Reveal/>) */
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 600ms ease, transform 600ms ease;
 }
